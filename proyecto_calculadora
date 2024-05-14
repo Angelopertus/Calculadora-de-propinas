@@ -1,0 +1,40 @@
+import tkinter as tk
+
+ventana = tk.Tk()
+ventana.title("Calculadora de Propinas")
+
+
+
+# Etiqueta para la cantidad total de la factura
+lbl_cantidad_total = tk.Label(ventana, text="Cantidad Total de la Factura:")
+lbl_cantidad_total.pack()
+
+# Campo de entrada para la cantidad total de la factura
+entrada_cantidad_total = tk.Entry(ventana)
+entrada_cantidad_total.pack()
+
+# Etiqueta para el porcentaje de propina
+lbl_porcentaje_propina = tk.Label(ventana, text="Porcentaje de Propina:")
+lbl_porcentaje_propina.pack()
+
+# Campo de entrada para el porcentaje de propina
+entrada_porcentaje_propina = tk.Entry(ventana)
+entrada_porcentaje_propina.pack()
+
+# Función para calcular la propina
+def calcular_propina():
+    cantidad_total = float(entrada_cantidad_total.get())
+    porcentaje_propina = float(entrada_porcentaje_propina.get())
+    propina = cantidad_total * (porcentaje_propina / 100)
+    lbl_resultado.config(text="La propina a pagar es: %.2f dolares" % propina)
+
+# Botón para calcular la propina
+btn_calcular_propina = tk.Button(ventana, text="Calcular Propina", command=lambda: calcular_propina())
+btn_calcular_propina.pack()
+
+# Etiqueta para mostrar el resultado
+lbl_resultado = tk.Label(ventana)
+lbl_resultado.pack()
+
+
+ventana.mainloop()
